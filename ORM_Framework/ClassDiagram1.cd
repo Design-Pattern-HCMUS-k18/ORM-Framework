@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ORM_Framework.DBConnection" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAIAAAAAAAAEBAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>DBConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SQL_DBConnection" Collapsed="true">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAIAAAAAAAAEAAAAAAAAAAAAAAABCAAAA=</HashCode>
+      <FileName>SQL_DBConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SqlQuery" Collapsed="true">
+    <Position X="4.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAEBAAAAA=</HashCode>
+      <FileName>SqlQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
