@@ -40,5 +40,24 @@ namespace ORM_Framework
             _conn.Close();
             return list;
         }
+
+        public int ExecuteNonQuery()
+        {
+            int rowsEffected = 0;
+            _command.CommandText = _query;
+            _conn.Open();
+            rowsEffected = _command.ExecuteNonQuery();
+            _conn.Close();
+            return rowsEffected;
+        }
+
+        public SqlQuery AddParameter<T>(string name, T value)
+        {
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = name;
+            param.Value = value;
+            _command.Parameters.Add(param);
+            return this;
+        }
     }
 }
