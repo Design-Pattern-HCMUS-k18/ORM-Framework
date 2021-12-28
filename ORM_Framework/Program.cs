@@ -20,7 +20,7 @@ namespace ORM_Framework
             //}
 
             //Insert
-            Product product = new Product() { Name = "Quạt", Price = 400000 };
+            Product product = new Product() { Name = "Xe đạp", Price = 4000000 };
             int rowEffected = db.Insert(product);
             Console.Write(rowEffected);
         }
