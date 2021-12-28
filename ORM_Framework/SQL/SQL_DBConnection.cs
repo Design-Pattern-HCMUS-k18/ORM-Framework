@@ -41,7 +41,19 @@ namespace ORM_Framework
 
         public override List<T> ExecuteQueryWithoutRelationship<T>(string query)
         {
+            SqlQuery sqlQuery = new SqlQuery((SqlConnection)_cnn, query);
+            return sqlQuery.ExecuteQueryWithoutRelationship<T>();
+        }
+
+        public override List<T> ExecuteQuery<T>(string query)
+        {
             throw new NotImplementedException();
+        }
+
+        public override int Insert<T>(T obj)
+        {
+            SqlInsert<T> query = new SqlInsert<T>((SqlConnection)_cnn, obj);
+            return query.ExecuteNonQuery();
         }
     }
 }

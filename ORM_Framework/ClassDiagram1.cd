@@ -15,11 +15,61 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SqlQuery" Collapsed="true">
-    <Position X="4.5" Y="2" Width="1.5" />
+    <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAEBAAAAA=</HashCode>
+      <HashCode>AAAAAAgIAAAAAAAgAAAAAEACAAAAAAAAAAAIEBAAAAA=</HashCode>
       <FileName>SqlQuery.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
+  <Class Name="ORM_Framework.SqlInsert">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SqlInsert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SqlUpdate">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SqlUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SqlDelete">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SqlDelete.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SqlSelect">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SqlSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.Attributes.ColumnAttribute" Collapsed="true">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Attributes\ColumnAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.Attributes.TableAttribute" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\TableAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ORM_Framework.IQuery" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

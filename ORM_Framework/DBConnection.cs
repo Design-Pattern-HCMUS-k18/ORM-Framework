@@ -12,7 +12,11 @@ namespace ORM_Framework
         protected IDbConnection _cnn;
         public abstract void Open();
         public abstract void Close();
+
+        public abstract int Insert<T>(T obj);
+        public abstract List<T> ExecuteQuery<T>(string query);
         public abstract List<T> ExecuteQueryWithoutRelationship<T>(string query);
         public abstract int ExecuteNonQuery<T>(string query);
+        
     }
 }

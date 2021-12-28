@@ -8,21 +8,29 @@ using System.Threading.Tasks;
 
 namespace ORM_Framework
 {
-    public class SqlQuery
+    public class SqlQuery : IQuery
     {
         protected SqlCommand _command;
         protected string _query;
-        private SQL_DBConnection _conn;
-        public SqlQuery(SQL_DBConnection conn, string queryString)
+        protected SqlConnection _conn;
+
+        public SqlQuery(SqlConnection conn)
         {
             _conn = conn;
-            _command = (SqlCommand?)_conn.GetConnection().CreateCommand();
+            _command = _conn.CreateCommand();
+        }
+
+        public SqlQuery(SqlConnection conn, string queryString)
+        {
+            _conn = conn;
+            _command = _conn.CreateCommand();
             _query = queryString;
         }
 
-        public IEnumerable<T> ExecuteQueryWithoutRelationship<T>()
+
+        public List<T> ExecuteQueryWithoutRelationship<T>()
         {
-            IList<T> list = new List<T>();
+            List<T> list = new List<T>();
             Type type = typeof(T);
             _command.CommandText = _query;
             _conn.Open();
@@ -58,6 +66,11 @@ namespace ORM_Framework
             param.Value = value;
             _command.Parameters.Add(param);
             return this;
+        }
+
+        public List<T> ExecuteQuery<T>()
+        {
+            throw new NotImplementedException();
         }
     }
 }
