@@ -3,51 +3,44 @@
   <Class Name="ORM_Framework.DBConnection" Collapsed="true">
     <Position X="1.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAIAAAAAAAAEBAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAEAIAAAAIAAAAAAAAEBAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>DBConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SQL_DBConnection" Collapsed="true">
     <Position X="1.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAIAAAAAAAAEAAAAAAAAAAAAAAABCAAAA=</HashCode>
-      <FileName>SQL_DBConnection.cs</FileName>
+      <HashCode>AAAAAEAIAAAAIAAAAAAAAEAAAAAAAAAAAAAAABCAAAA=</HashCode>
+      <FileName>SQL\SQL_DBConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SqlQuery" Collapsed="true">
     <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgIAAAAAAAgAAAAAEACAAAAAAAAAAAIEBAAAAA=</HashCode>
-      <FileName>SqlQuery.cs</FileName>
+      <HashCode>AAAAAAAIAAAAAAAgAAAAAEACAAAAAAAAAAAAEBAAAAA=</HashCode>
+      <FileName>SQL\SqlQuery.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="ORM_Framework.SqlInsert">
-    <Position X="5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SqlInsert.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SqlUpdate">
     <Position X="6.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SqlUpdate.cs</FileName>
+      <FileName>SQL\SqlUpdate.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SqlDelete">
     <Position X="8.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SqlDelete.cs</FileName>
+      <FileName>SQL\SqlDelete.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SqlSelect">
     <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SqlSelect.cs</FileName>
+      <FileName>SQL\SqlSelect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.Attributes.ColumnAttribute" Collapsed="true">

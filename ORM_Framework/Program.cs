@@ -10,19 +10,17 @@ namespace ORM_Framework
     {
         public static void Main(string[] args)
         {
-            SQL_DBConnection db = new SQL_DBConnection(@"Data source=DESKTOP-R463O3I\SQLEXPRESS;Database=ORM;User ID=sa;Password=123456; Integrated Security=true");
+            var db = DBConnectionFactory.CreateDBInstance(@"Data source=DESKTOP-R463O3I\SQLEXPRESS;Database=ORM;User ID=sa;Password=123456; Integrated Security=true", "sqlserver");
+            var list = db.ExecuteQueryWithoutRelationship<Product>("SELECT * FROM PRODUCT");
+            foreach (var product in list)
+            {
+                Console.WriteLine(product.Name);
+            }
 
-            // Query
-            //var list = db.ExecuteQueryWithoutRelationship<Product>("SELECT * FROM PRODUCT");
-            //foreach (var product in list)
-            //{
-            //    Console.WriteLine(product.Name);
-            //}
-
-            //Insert
-            Product product = new Product() { Name = "Xe đạp", Price = 4000000 };
-            int rowEffected = db.Insert(product);
-            Console.Write(rowEffected);
+            ////Insert
+            //Product product = new Product() { Name = "Xe đạp", Price = 4000000 };
+            //int rowEffected = db.Insert(product);
+            //Console.Write(rowEffected);
         }
     }
 }
