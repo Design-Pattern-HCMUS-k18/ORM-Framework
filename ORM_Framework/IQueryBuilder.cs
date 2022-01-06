@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ORM_Framework
 {
-    public interface IQueryBuilder
+    public interface IQueryBuilder<T>
     {
-        IQueryBuilder Where(string condition);
-        IQueryBuilder GroupBy(string columnNames);
-        IQueryBuilder Having(string condition);
+        IQueryBuilder<T> Where(string condition);
+        IQueryBuilder<T> GroupBy(string columnNames);
+        IQueryBuilder<T> Having(string condition);
+        List<T> Run();
     }
 }

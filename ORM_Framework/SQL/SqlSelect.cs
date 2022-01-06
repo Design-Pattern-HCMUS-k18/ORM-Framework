@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using ORM_Framework.Attributes;
 
 namespace ORM_Framework.SQL
 {
-    public class SqlSelect : SqlQuery, IQueryBuilder
+    public class SqlSelect<T> : SqlQuery, IQueryBuilder<T>
     {
         private SqlSelect(SqlConnection cnn) : base(cnn)
         {
@@ -43,6 +44,11 @@ namespace ORM_Framework.SQL
         {
             _query = string.Format("{0} GROUP BY {1}", _query, columnNames);
             return this;
+        }
+
+        public List<T> Run()
+        {
+            return ExecuteQueryWithoutRelationship<T>();
         }
     }
 }
