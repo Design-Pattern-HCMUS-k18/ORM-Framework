@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ORM_Framework.SQL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -64,6 +65,11 @@ namespace ORM_Framework
         {
             var query = new SqlDeleteQuery<T>((SqlConnection)_cnn, obj);
             query.ExecuteNonQuery();
+        }
+
+        public override IQueryBuilder<T> Select<T>()
+        {
+            return new SqlSelect<T>((SqlConnection)_cnn);
         }
     }
 }

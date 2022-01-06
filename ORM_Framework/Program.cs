@@ -26,7 +26,7 @@ namespace ORM_Framework
             //int rowEffected = db.Insert(product);
             //Console.Write(rowEffected);
 
-            var query = SqlSelect<Product>.Create(((SQL_DBConnection)db).GetConnection());
+            var query = db.Select<Product>();
             query.Where("name = 'Xe máy'");
             var list = query.Run();
             foreach (var product in list)

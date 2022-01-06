@@ -9,7 +9,7 @@ namespace ORM_Framework.SQL
 {
     public class SqlSelect<T> : SqlQuery, IQueryBuilder<T>
     {
-        private SqlSelect(SqlConnection cnn) : base(cnn)
+        public SqlSelect(SqlConnection cnn) : base(cnn)
         {
             SqlMapper mapper = new();
 
@@ -21,11 +21,6 @@ namespace ORM_Framework.SQL
 
             _query = _query.Substring(0, _query.Length - 1);
             _query = string.Format("{0} FROM {1}", _query, mapper.GetTableName<T>());
-        }
-
-        public static IQueryBuilder<T> Create(SqlConnection cnn)
-        {
-            return new SqlSelect<T>(cnn);
         }
 
         public IQueryBuilder<T> Where(string condition)
