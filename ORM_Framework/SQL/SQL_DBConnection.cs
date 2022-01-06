@@ -55,5 +55,15 @@ namespace ORM_Framework
             SqlInsert<T> query = new SqlInsert<T>((SqlConnection)_cnn, obj);
             return query.ExecuteNonQuery();
         }
+        public override int Update<T>(T obj)
+        {
+            SqlUpdate<T> query = new SqlUpdate<T>((SqlConnection)_cnn, obj);
+            return query.ExecuteNonQuery();
+        }
+        public override void Delete<T>(T obj)
+        {
+            var query = new SqlDeleteQuery<T>((SqlConnection)_cnn, obj);
+            query.ExecuteNonQuery();
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace ORM_Framework
     [Table("Product")]
     public class Product
     {
-        [PrimaryKey("Id", true)]
+        [PrimaryKey("Id", false)]
         [Column("Id", DataType.INT)]
         public int Id { get; set; }
         [Column("Name", DataType.NVARCHAR)]

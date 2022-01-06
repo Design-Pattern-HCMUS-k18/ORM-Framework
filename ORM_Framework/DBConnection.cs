@@ -14,6 +14,8 @@ namespace ORM_Framework
         public abstract void Close();
 
         public abstract int Insert<T>(T obj);
+        public abstract int Update<T>(T obj);
+        public abstract void Delete<T>(T obj);
         public abstract List<T> ExecuteQuery<T>(string query);
         public abstract List<T> ExecuteQueryWithoutRelationship<T>(string query);
         public abstract int ExecuteNonQuery<T>(string query);

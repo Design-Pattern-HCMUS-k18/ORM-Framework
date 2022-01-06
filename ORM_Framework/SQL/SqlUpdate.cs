@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ORM_Framework.Attributes;
+using ORM_Framework.SQL;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -38,7 +41,13 @@ namespace ORM_Framework
                 }
                 foreach (PrimaryKeyAttribute primaryKey in pks)
                 {
-                    ColumnAttribute column = mapper.FindColumn(primaryKey.Name, listColumnValues);
+                    //ColumnAttribute column = mapper.FindColumn(primaryKey.Name, listColumnValues);
+                    ColumnAttribute column = null;
+                    foreach(ColumnAttribute col in listColumnValues.Keys)
+                    {
+                        if (col.Name == primaryKey.Name)
+                            column = col;
+                    }
                     if (column != null)
                     {
                         string format = "{0} = {1}, ";

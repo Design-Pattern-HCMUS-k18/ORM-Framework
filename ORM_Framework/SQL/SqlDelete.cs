@@ -10,17 +10,23 @@ namespace ORM_Framework
 {
     public class SqlDeleteQuery<T> : SqlQuery
     {
-        public SqlDeleteQuery(SqlConnection conn, T obj) : base(cnn)
+        public SqlDeleteQuery(SqlConnection conn, T obj) : base(conn)
         {
             SqlMapper mapper = new SqlMapper();
             string tableName = mapper.GetTableName<T>();
-            List<PrimaryKeyAttribute> pks = mapper.GetPrimaryKeys<T>();
+            List<PrimaryKeyAttribute> pks = mapper.GetAllPrimaryKeys<T>();
             Dictionary<ColumnAttribute, object> columnValues = mapper.GetAllColumnValues<T>(obj);
 
             string valueStr = "";
             foreach (PrimaryKeyAttribute primaryKey in pks)
             {
-                ColumnAttribute column = mapper.FindColumn(primaryKey.Name, columnValues);
+                //ColumnAttribute column = mapper.FindColumn(primaryKey.Name, columnValues);
+                ColumnAttribute column = null;
+                foreach (ColumnAttribute col in columnValues.Keys)
+                {
+                    if (col.Name == primaryKey.Name)
+                        column = col;
+                }
                 if (column != null)
                 {
                     string format = "{0} = {1}, ";
