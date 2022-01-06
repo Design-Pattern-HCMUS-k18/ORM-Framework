@@ -60,5 +60,10 @@ namespace ORM_Framework
             }
             return "";
         }
+
+        public List<ColumnAttribute> GetColumns<T>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

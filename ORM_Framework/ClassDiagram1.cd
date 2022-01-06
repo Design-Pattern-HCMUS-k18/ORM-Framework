@@ -22,25 +22,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ORM_Framework.SqlUpdate">
+  <Class Name="ORM_Framework.SqlUpdate&lt;T&gt;">
     <Position X="6.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SQL\SqlUpdate.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ORM_Framework.SqlDelete">
-    <Position X="8.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SQL\SqlDelete.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ORM_Framework.SqlSelect">
-    <Position X="2.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SQL\SqlSelect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.Attributes.ColumnAttribute" Collapsed="true">
@@ -55,6 +41,21 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Attributes\TableAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SQL.SqlSelect" Collapsed="true">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAEAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQL\SqlSelect.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ORM_Framework.SqlDeleteQuery&lt;T&gt;" Collapsed="true">
+    <Position X="9" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQL\SqlDelete.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="ORM_Framework.IQuery" Collapsed="true">
