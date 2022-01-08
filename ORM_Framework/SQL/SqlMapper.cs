@@ -44,8 +44,8 @@ namespace ORM_Framework.SQL
 
                         List<ForeignKeyAttribute> foreignKeys = mapper.GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
 
-                        MethodInfo getColumnAttribute = mapper.GetType().GetMethod("GetAllColumnValues")
-                            .MakeGenericMethod(new Type[] { type });
+                        MethodInfo getColumnAttribute = mapper.GetType().GetMethod("GetColumnAttributes")
+                            .MakeGenericMethod(new Type[] { ptype });
                         List<ColumnAttribute> columnAttributes = getColumnAttribute.Invoke(mapper, null) as List<ColumnAttribute>;
 
                         foreach(var foreignKey in foreignKeys)
