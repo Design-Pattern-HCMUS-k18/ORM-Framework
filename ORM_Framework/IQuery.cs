@@ -8,7 +8,7 @@ namespace ORM_Framework
 {
     public interface IQuery
     {
-        public List<T> ExecuteQuery<T>();
+        public List<T> ExecuteQuery<T>() where T : new();
         public List<T> ExecuteQueryWithoutRelationship<T>();
         public int ExecuteNonQuery();
     }

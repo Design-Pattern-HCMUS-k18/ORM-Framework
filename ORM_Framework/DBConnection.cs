@@ -10,6 +10,7 @@ namespace ORM_Framework
     public abstract class DBConnection
     {
         protected IDbConnection _cnn;
+        protected string _connectionString;
         public abstract void Open();
         public abstract void Close();
 

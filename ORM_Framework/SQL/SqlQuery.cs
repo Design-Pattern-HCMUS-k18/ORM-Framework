@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ORM_Framework.SQL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -77,9 +78,23 @@ namespace ORM_Framework
             return this;
         }
 
-        public List<T> ExecuteQuery<T>()
+        public List<T> ExecuteQuery<T>() where T : new()
         {
-            throw new NotImplementedException();
+            List<T> list = new List<T>();
+            _command.CommandText = _query;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(_command);
+            adapter.Fill(dt);
+
+            SqlMapper mapper = new SqlMapper();
+
+            DBConnection cnn = new SQL_DBConnection(_conn);
+
+            foreach (DataRow dr in dt.Rows)
+                list.Add(mapper.MapWithRelationship<T>(cnn, dr));
+
+            return list;
         }
     }
 }

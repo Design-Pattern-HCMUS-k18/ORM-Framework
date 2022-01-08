@@ -13,8 +13,15 @@ namespace ORM_Framework
     {
         public SQL_DBConnection(string connectionString)
         {
+            _connectionString = connectionString;
             _cnn = new SqlConnection(connectionString);
         }
+
+        public SQL_DBConnection(SqlConnection cnn)
+        {
+            _cnn = cnn;
+        }
+
         public override void Open()
         {
             if (_cnn.State != System.Data.ConnectionState.Open)
@@ -69,7 +76,7 @@ namespace ORM_Framework
 
         public override IQueryBuilder<T> Select<T>(params string[] statements)
         {
-            return new SqlSelect<T>((SqlConnection)_cnn, statements);
+            return SqlSelect<T>.Create(_cnn as SqlConnection, statements);
         }
     }
 }

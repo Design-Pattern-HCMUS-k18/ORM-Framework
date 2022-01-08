@@ -17,7 +17,7 @@ namespace ORM_Framework.SQL
             
         }
 
-        public void MapOneToOne<T>(SQL_DBConnection cnn, DataRow dr, T obj)
+        public override void MapOneToOne<T>(DBConnection cnn, DataRow dr, T obj)
         {
             Type type = typeof(T);
             var properties = type.GetProperties();

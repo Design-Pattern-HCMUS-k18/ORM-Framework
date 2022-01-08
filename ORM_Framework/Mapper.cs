@@ -1,6 +1,7 @@
 ﻿using ORM_Framework.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -118,5 +119,39 @@ namespace ORM_Framework
             }
             return list;
         }
+
+        public T MapWithRelationship<T>(DBConnection cnn, DataRow dr) where T : new()
+        {
+            T obj = new T();
+            var properties = typeof(T).GetProperties();
+
+            foreach (var property in properties)
+            {
+                var attributes = property.GetCustomAttributes(false);
+                ColumnAttribute columnMapping = null;
+                foreach (var attribute in attributes)
+                {
+                    var column = attribute as ColumnAttribute;
+
+                    if (column != null)
+                    {
+                        columnMapping = column;
+                        break;
+                    }
+                }
+
+                if (columnMapping != null)
+                {
+                    property.SetValue(obj, dr[columnMapping.Name]);
+                }
+            }
+
+            //MapOneToMany(cnn, dr, obj);
+            MapOneToOne(cnn, dr, obj);
+
+            return obj;
+        }
+
+        public abstract void MapOneToOne<T>(DBConnection cnn, DataRow dr, T obj);
     }
 }

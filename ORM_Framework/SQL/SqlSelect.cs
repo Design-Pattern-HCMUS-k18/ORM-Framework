@@ -7,7 +7,7 @@ using ORM_Framework.Attributes;
 
 namespace ORM_Framework.SQL
 {
-    public class SqlSelect<T> : SqlQuery, IQueryBuilder<T>
+    public class SqlSelect<T> : SqlQuery, IQueryBuilder<T> where T : new()
     {
         private string TableName;
         private List<string> SelectStatements = new List<string>();
@@ -15,7 +15,7 @@ namespace ORM_Framework.SQL
         private List<string> HavingConditions = new List<string>();
         private List<string> GroupByColumnNames = new List<string>();
 
-        public SqlSelect(SqlConnection cnn, string[] statements) : base(cnn)
+        protected SqlSelect(SqlConnection cnn, string[] statements) : base(cnn)
         {
             SqlMapper mapper = new();
 
@@ -31,6 +31,11 @@ namespace ORM_Framework.SQL
             }
 
             TableName = mapper.GetTableName<T>();
+        }
+
+        public static IQueryBuilder<T> Create(SqlConnection cnn, string[] statements)
+        {
+            return new SqlSelect<T>(cnn, statements);
         }
 
         public IQueryBuilder<T> Where(string firstCondition, params string[] conditions)
@@ -81,7 +86,7 @@ namespace ORM_Framework.SQL
                 BuildQuery();
 
                 Console.WriteLine("Raw query: {0}", _query);
-                return ExecuteQueryWithoutRelationship<T>();
+                return ExecuteQuery<T>();
             }
             catch (Exception)
             {
