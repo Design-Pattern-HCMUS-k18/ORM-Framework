@@ -8,9 +8,11 @@ namespace ORM_Framework
 {
     public interface IQueryBuilder<T>
     {
-        IQueryBuilder<T> Where(string condition);
-        IQueryBuilder<T> GroupBy(string columnNames);
-        IQueryBuilder<T> Having(string condition);
+        IQueryBuilder<T> Where(string firstCondition, params string[] conditions);
+        IQueryBuilder<T> WhereOr(string firstCondition, params string[] conditions);
+        IQueryBuilder<T> GroupBy(string firstColumnName, params string[] columnNames);
+        IQueryBuilder<T> Having(string firstCondition, params string[] conditions);
+        IQueryBuilder<T> HavingOr(string firstCondition, params string[] conditions);
         List<T> Run();
     }
 }

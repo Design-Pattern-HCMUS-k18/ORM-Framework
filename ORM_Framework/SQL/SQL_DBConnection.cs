@@ -67,9 +67,9 @@ namespace ORM_Framework
             query.ExecuteNonQuery();
         }
 
-        public override IQueryBuilder<T> Select<T>()
+        public override IQueryBuilder<T> Select<T>(params string[] statements)
         {
-            return new SqlSelect<T>((SqlConnection)_cnn);
+            return new SqlSelect<T>((SqlConnection)_cnn, statements);
         }
     }
 }

@@ -35,13 +35,22 @@ namespace ORM_Framework
             _command.CommandText = _query;
             _conn.Open();
             var dataReader = _command.ExecuteReader();
-            
+
             while (dataReader.Read())
             {
                 // Chưa sử dụng attribute để mapping
                 T obj = (T)Activator.CreateInstance(type);
                 type.GetProperties().ToList().ForEach(p =>
-                    p.SetValue(obj, dataReader[p.Name])
+                    {
+                        try
+                        {
+                            p.SetValue(obj, dataReader[p.Name]);
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
+                            return;
+                        }
+                    }
                 );
                 list.Add(obj);
             }
