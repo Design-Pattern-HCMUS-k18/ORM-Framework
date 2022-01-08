@@ -11,5 +11,10 @@ namespace ORM_Framework.Attributes
     {
         public string ReferenceTable { get; set; }
         public string ReferenceColumn { get; set; }
+        public ForeignKeyAttribute(string referenceTable, string referenceColumn)
+        {
+            ReferenceTable = referenceTable;
+            ReferenceColumn = referenceColumn;
+        }
     }
 }

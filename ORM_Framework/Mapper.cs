@@ -1,5 +1,6 @@
 ﻿using ORM_Framework.Attributes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -62,6 +63,17 @@ namespace ORM_Framework
             return "";
         }
 
+        public object GetFirst(IEnumerable source)
+        {
+            IEnumerator iter = source.GetEnumerator();
+
+            if (iter.MoveNext())
+            {
+                return iter.Current;
+            }
+            return null;
+        }
+
         public List<ColumnAttribute> GetColumns<T>()
         {
             Type t = typeof (T);
@@ -82,22 +94,26 @@ namespace ORM_Framework
             return list;
         }
 
-        public List<ForeignKeyAttribute> GetAllForeignKeyAttributes<T>(string referenceTable)
+        public List<KeyValuePair<ColumnAttribute, ForeignKeyAttribute>> GetAllForeignKeyAttributes<T>(string referenceTable)
         {
-            List<ForeignKeyAttribute> list = new List<ForeignKeyAttribute>();
+            List<KeyValuePair<ColumnAttribute, ForeignKeyAttribute>> list = new List<KeyValuePair<ColumnAttribute, ForeignKeyAttribute>>();
             Type type = typeof (T);
             var properties = type.GetProperties();
             foreach(var property in properties)
             {
                 var attributes = property.GetCustomAttributes(false);
-                foreach(var attribute in attributes)
+                ForeignKeyAttribute foreignKey = null;
+                ColumnAttribute columnAttribute = null;
+                foreach (var attribute in attributes)
                 {
-                    var foreignKey = attribute as ForeignKeyAttribute;
-                    if(foreignKey != null && foreignKey.ReferenceTable.Equals(referenceTable))
+                    foreignKey = attribute as ForeignKeyAttribute;
+                    columnAttribute = attribute as ColumnAttribute;
+
+                    if (foreignKey != null && columnAttribute != null && foreignKey.ReferenceTable.Equals(referenceTable))
                     {
-                        list.Add(foreignKey);
+                        list.Add(new KeyValuePair<ColumnAttribute, ForeignKeyAttribute>(columnAttribute, foreignKey));
                     }
-                }
+                }                
             }
             return list;
         }
@@ -142,7 +158,13 @@ namespace ORM_Framework
 
                 if (columnMapping != null)
                 {
-                    property.SetValue(obj, dr[columnMapping.Name]);
+                    try
+                    {
+                        property.SetValue(obj, dr[columnMapping.Name]);
+                    } catch (Exception)
+                    {
+                        continue;
+                    }
                 }
             }
 

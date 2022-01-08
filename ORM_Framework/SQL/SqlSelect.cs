@@ -33,11 +33,6 @@ namespace ORM_Framework.SQL
             TableName = mapper.GetTableName<T>();
         }
 
-        public static IQueryBuilder<T> Create(SqlConnection cnn, string[] statements)
-        {
-            return new SqlSelect<T>(cnn, statements);
-        }
-
         public IQueryBuilder<T> Where(string firstCondition, params string[] conditions)
         {
             ConditionalQuery("WHERE", "AND", firstCondition, conditions);
@@ -88,8 +83,9 @@ namespace ORM_Framework.SQL
                 Console.WriteLine("Raw query: {0}", _query);
                 return ExecuteQuery<T>();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return new List<T>();
             }
         }

@@ -76,7 +76,7 @@ namespace ORM_Framework
 
         public override IQueryBuilder<T> Select<T>(params string[] statements)
         {
-            return SqlSelect<T>.Create(_cnn as SqlConnection, statements);
+            return new SqlSelect<T>(_cnn as SqlConnection, statements);
         }
     }
 }

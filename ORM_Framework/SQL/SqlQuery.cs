@@ -34,7 +34,7 @@ namespace ORM_Framework
             List<T> list = new List<T>();
             Type type = typeof(T);
             _command.CommandText = _query;
-            _conn.Open();
+            //_conn.Open();
             var dataReader = _command.ExecuteReader();
 
             while (dataReader.Read())

@@ -42,7 +42,7 @@ namespace ORM_Framework.SQL
                         SqlMapper mapper = new SqlMapper();
                         string whereStr = string.Empty;
 
-                        List<ForeignKeyAttribute> foreignKeys = mapper.GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
+                        var foreignKeys = mapper.GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
 
                         MethodInfo getColumnAttribute = mapper.GetType().GetMethod("GetColumnAttributes")
                             .MakeGenericMethod(new Type[] { ptype });
@@ -53,7 +53,7 @@ namespace ORM_Framework.SQL
                             ColumnAttribute column = null;
                             foreach (var columnAttribute in columnAttributes)
                             {
-                                if(foreignKey.ReferenceColumn.Equals(columnAttribute.Name))
+                                if(foreignKey.Value.ReferenceColumn.Equals(columnAttribute.Name))
                                 {
                                     column = columnAttribute;
                                     break;
@@ -68,16 +68,16 @@ namespace ORM_Framework.SQL
                                 else if (column.Type == DataType.CHAR || column.Type == DataType.VARCHAR)
                                     format = "{0} = '{1}', ";
 
-                                whereStr += string.Format(format, foreignKey.ReferenceTable, dr[foreignKey.ReferenceColumn]);
+                                whereStr += string.Format(format, foreignKey.Value.ReferenceColumn, dr[foreignKey.Key.Name]);
                             }
                         }
                         if (!string.IsNullOrEmpty(whereStr))
                         {
                             whereStr = whereStr.Substring(0, whereStr.Length - 2);
                             string query = string.Format("SELECT * FROM {0} WHERE {1}", onetoone.ReferenceTable, whereStr);
-
+                            Console.WriteLine(query);
                             cnn.Open();
-                            MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithOutRelationship")
+                            MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithoutRelationship")
                             .MakeGenericMethod(new Type[] { type });
                             var ienumerable = (IEnumerable)method.Invoke(cnn, new object[] { query });
                             cnn.Close();

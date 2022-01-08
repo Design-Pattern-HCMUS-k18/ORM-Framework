@@ -10,5 +10,9 @@ namespace ORM_Framework.Attributes
     public class OneToOneAttribute : Attribute
     {
         public string ReferenceTable { get; set; }
+        public OneToOneAttribute(string referenceTable)
+        {
+            ReferenceTable = referenceTable;
+        }
     }
 }

@@ -18,5 +18,11 @@ namespace ORM_Framework
         public string Name { get; set; }
         [Column("Price", DataType.DECIMAL)]
         public decimal Price { get; set; }
+
+        [Column("BarcodeId", DataType.INT)]
+        [ForeignKey("Barcode", "Id")]
+        public int BarcodeId { get; set; }
+        [OneToOne("Barcode")]
+        public Barcode barcode { get; set; }
     }
 }
