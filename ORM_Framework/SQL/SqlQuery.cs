@@ -78,7 +78,7 @@ namespace ORM_Framework
             return this;
         }
 
-        public List<T> ExecuteQuery<T>() where T : new()
+        public List<T> ExecuteQuery<T>()
         {
             List<T> list = new List<T>();
             _command.CommandText = _query;

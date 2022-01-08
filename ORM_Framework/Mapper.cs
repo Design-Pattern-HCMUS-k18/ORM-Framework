@@ -120,9 +120,9 @@ namespace ORM_Framework
             return list;
         }
 
-        public T MapWithRelationship<T>(DBConnection cnn, DataRow dr) where T : new()
+        public T MapWithRelationship<T>(DBConnection cnn, DataRow dr)
         {
-            T obj = new T();
+            T obj = (T)Activator.CreateInstance(typeof(T));
             var properties = typeof(T).GetProperties();
 
             foreach (var property in properties)

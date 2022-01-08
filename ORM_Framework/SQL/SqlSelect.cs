@@ -7,7 +7,7 @@ using ORM_Framework.Attributes;
 
 namespace ORM_Framework.SQL
 {
-    public class SqlSelect<T> : SqlQuery, IQueryBuilder<T> where T : new()
+    public class SqlSelect<T> : SqlQuery, IQueryBuilder<T>
     {
         private string TableName;
         private List<string> SelectStatements = new List<string>();
@@ -15,7 +15,7 @@ namespace ORM_Framework.SQL
         private List<string> HavingConditions = new List<string>();
         private List<string> GroupByColumnNames = new List<string>();
 
-        protected SqlSelect(SqlConnection cnn, string[] statements) : base(cnn)
+        public SqlSelect(SqlConnection cnn, string[] statements) : base(cnn)
         {
             SqlMapper mapper = new();
 
