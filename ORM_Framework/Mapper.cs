@@ -80,5 +80,43 @@ namespace ORM_Framework
             }
             return list;
         }
+
+        public List<ForeignKeyAttribute> GetAllForeignKeyAttributes<T>(string referenceTable)
+        {
+            List<ForeignKeyAttribute> list = new List<ForeignKeyAttribute>();
+            Type type = typeof (T);
+            var properties = type.GetProperties();
+            foreach(var property in properties)
+            {
+                var attributes = property.GetCustomAttributes(false);
+                foreach(var attribute in attributes)
+                {
+                    var foreignKey = attribute as ForeignKeyAttribute;
+                    if(foreignKey != null && foreignKey.ReferenceTable.Equals(referenceTable))
+                    {
+                        list.Add(foreignKey);
+                    }
+                }
+            }
+            return list;
+        }
+
+        public List<ColumnAttribute> GetColumnAttributes<T>()
+        {
+            Type type = typeof(T);
+            List<ColumnAttribute> list = new List<ColumnAttribute>();
+            foreach(var property in type.GetProperties())
+            {
+                var attributes = property.GetCustomAttributes(false);
+                for(int i = 0; i < attributes.Length; i++)
+                {
+                    var attribute = attributes[i];
+                    var column = attribute as ColumnAttribute;
+                    if(column != null)
+                        list.Add(column);
+                }
+            }
+            return list;
+        }
     }
 }
