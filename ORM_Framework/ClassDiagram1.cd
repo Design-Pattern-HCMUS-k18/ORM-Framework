@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ORM_Framework.DBConnection" Collapsed="true">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+  <Class Name="ORM_Framework.DBConnection">
+    <Position X="6" Y="2.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAIAAAAIAAAAAAAAEBAAAEAAAAAAAAAQACAAAA=</HashCode>
+      <HashCode>AAQAAEAIAAAAIAAAAAAAAEBAAAEAAAAIAAAAQACAAAA=</HashCode>
       <FileName>DBConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ORM_Framework.SQL_DBConnection" Collapsed="true">
-    <Position X="1.5" Y="2" Width="1.5" />
+  <Class Name="ORM_Framework.SQL_DBConnection">
+    <Position X="4.75" Y="6.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAQAAEAIAAAAIAAAAAAAAEAAAAEAAAAAAAAAQBCAAAA=</HashCode>
       <FileName>SQL\SQL_DBConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.SqlQuery" Collapsed="true">
-    <Position X="6.25" Y="1.75" Width="1.5" />
+    <Position X="12.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAgAAAAAEACAAAAAAAAAAAAEBAAAAA=</HashCode>
       <FileName>SQL\SqlQuery.cs</FileName>
@@ -23,35 +23,35 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ORM_Framework.SqlUpdate&lt;T&gt;">
-    <Position X="6.25" Y="3.75" Width="1.5" />
+    <Position X="12" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SQL\SqlUpdate.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.Attributes.ColumnAttribute" Collapsed="true">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+    <Position X="15.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Attributes\ColumnAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ORM_Framework.Attributes.TableAttribute" Collapsed="true">
-    <Position X="9.75" Y="1.5" Width="1.5" />
+    <Position X="17.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Attributes\TableAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ORM_Framework.SqlDeleteQuery&lt;T&gt;" Collapsed="true">
-    <Position X="9" Y="3.75" Width="1.5" />
+  <Class Name="ORM_Framework.SqlDeleteQuery&lt;T&gt;">
+    <Position X="14.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SQL\SqlDelete.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ORM_Framework.SQL.SqlSelect&lt;T&gt;" Collapsed="true">
-    <Position X="3.75" Y="3.75" Width="1.5" />
+  <Class Name="ORM_Framework.SQL.SqlSelect&lt;T&gt;">
+    <Position X="9.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAACAABAACAAAAAEAAAAEBIFIAAAAAAAAAQAAAAI=</HashCode>
       <FileName>SQL\SqlSelect.cs</FileName>
@@ -59,28 +59,70 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ORM_Framework.Attributes.PrimaryKeyAttribute" Collapsed="true">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Position X="17.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Attributes\PrimaryKeyAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ORM_Framework.SqlInsert&lt;T&gt;" Collapsed="true">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+  <Class Name="ORM_Framework.SqlInsert&lt;T&gt;">
+    <Position X="16.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SQL\SqlInsert.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="ORM_Framework.IQuery" Collapsed="true">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+  <Class Name="ORM_Framework.Attributes.ForeignKeyAttribute" Collapsed="true">
+    <Position X="15.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\ForeignKeyAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.Attributes.ManyToOneAttribute" Collapsed="true">
+    <Position X="15.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\ManyToOneAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.Attributes.OneToOneAttribute" Collapsed="true">
+    <Position X="17.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\OneToOneAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.DBConnectionFactory">
+    <Position X="6" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DBConnectionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.Mapper">
+    <Position X="2.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAEAAAAAAAMAAABAgAACAAABAIEAAQgAAAA=</HashCode>
+      <FileName>Mapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORM_Framework.SQL.SqlMapper">
+    <Position X="2.25" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>SQL\SqlMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ORM_Framework.IQuery">
+    <Position X="11.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IQuery.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ORM_Framework.IQueryBuilder&lt;T&gt;" Collapsed="true">
-    <Position X="3.75" Y="4.75" Width="1.5" />
+    <Position X="11.5" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAAAAAAAEAAFIAAAAAAAAAAAAAAI=</HashCode>
       <FileName>IQueryBuilder.cs</FileName>
