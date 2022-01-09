@@ -27,10 +27,11 @@ namespace ORM_Framework
             //int rowEffected = db.Insert(product);
             //Console.Write(rowEffected);
 
-            var query = db.Select<Category>();
-            //query.GroupBy("Name").Having("Sum(Price) > 4000000");
-            query.Where("Id = 1");
-            var list = query.Run();
+            //var query = db.Select<Category>();
+            ////query.GroupBy("Name").Having("Sum(Price) > 4000000");
+            //query.Where("Id = 1");
+            //var list = query.Run();
+            var list = db.ExecuteQuery<Category>("select * from category");
             foreach (var category in list)
             {
                 foreach (var product in category.Products)

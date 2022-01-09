@@ -55,7 +55,8 @@ namespace ORM_Framework
 
         public override List<T> ExecuteQuery<T>(string query)
         {
-            throw new NotImplementedException();
+            var sqlQuery = new SqlQuery((SqlConnection) _cnn, query);
+            return sqlQuery.ExecuteQuery<T>();
         }
 
         public override int Insert<T>(T obj)
