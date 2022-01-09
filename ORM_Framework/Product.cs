@@ -22,6 +22,11 @@ namespace ORM_Framework
         [Column("BarcodeId", DataType.INT)]
         [ForeignKey("Barcode", "Id")]
         public int BarcodeId { get; set; }
+        [Column("CategoryId", DataType.INT)]
+        [ForeignKey("Category", "Id")]
+        public int CategoryId { get; set; }
+        [ManyToOne("Category")]
+        public Category category { get; set; }
         [OneToOne("Barcode")]
         public Barcode barcode { get; set; }
     }

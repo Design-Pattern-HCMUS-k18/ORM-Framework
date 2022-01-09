@@ -9,6 +9,11 @@ namespace ORM_Framework.Attributes
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class ManyToOneAttribute : Attribute
     {
+        public ManyToOneAttribute(string table)
+        {
+            this.ReferenceTable = table;
+        }
+
         public string ReferenceTable { get; set; }
     }
 }

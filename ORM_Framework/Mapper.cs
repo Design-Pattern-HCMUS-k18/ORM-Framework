@@ -30,6 +30,23 @@ namespace ORM_Framework
             }
             return primaryKeys;
         }
+        public PrimaryKeyAttribute? GetPrimaryKey<T>(string columnName)
+        {
+            Type t = typeof(T);
+            foreach (PropertyInfo property in t.GetProperties())
+            {
+                var attributes = property.GetCustomAttributes(false);
+                foreach (var a in attributes)
+                {
+                    PrimaryKeyAttribute? pk = a as PrimaryKeyAttribute;
+                    if (pk != null && pk.Name.Equals(columnName))
+                    {
+                        return pk;
+                    }
+                }
+            }
+            return null;
+        }
 
         public Dictionary<ColumnAttribute, object> GetAllColumnValues<T>(T obj)
         {
@@ -168,12 +185,15 @@ namespace ORM_Framework
                 }
             }
 
-            //MapOneToMany(cnn, dr, obj);
+            MapOneToMany(cnn, dr, obj);
             MapOneToOne(cnn, dr, obj);
+            MapManyToOne(cnn, dr, obj);
 
             return obj;
         }
 
         public abstract void MapOneToOne<T>(DBConnection cnn, DataRow dr, T obj);
+        public abstract void MapOneToMany<T>(DBConnection cnn, DataRow dr, T obj);
+        public abstract void MapManyToOne<T>(DBConnection cnn, DataRow dr, T obj);
     }
 }

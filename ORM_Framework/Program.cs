@@ -27,13 +27,14 @@ namespace ORM_Framework
             //int rowEffected = db.Insert(product);
             //Console.Write(rowEffected);
 
-            var query = db.Select<Product>();
+            var query = db.Select<Category>();
             //query.GroupBy("Name").Having("Sum(Price) > 4000000");
-            query.Where("Id = 2");
+            query.Where("Id = 1");
             var list = query.Run();
-            foreach (var product in list)
+            foreach (var category in list)
             {
-                Console.WriteLine("{0} | {1}", product.Name, product.barcode.Code);
+                foreach (var product in category.Products)
+                Console.WriteLine("{0} | {1}", product.Id, product.Name);
             }
         }
     }

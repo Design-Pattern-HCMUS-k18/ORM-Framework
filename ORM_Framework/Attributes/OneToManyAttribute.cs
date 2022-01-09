@@ -9,6 +9,10 @@ namespace ORM_Framework.Attributes
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class OneToManyAttribute : Attribute
     {
+        public OneToManyAttribute(string table)
+        {
+            ReferenceTable = table;
+        }
         public string ReferenceTable { get; set; }
     }
 }
