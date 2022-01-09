@@ -24,6 +24,13 @@ namespace ORM_Framework
 
                 foreach (ColumnAttribute column in listColumnValues.Keys)
                 {
+                    bool temp = false;
+                    foreach(var pk in pks)
+                    {
+                        if (pk.Name == column.Name) temp = true;
+                        break;
+                    }
+                    if (temp) continue;
                     string format = "{0} = {1}, ";
                     if (column.Type == DataType.NVARCHAR || column.Type == DataType.NCHAR)
                     {

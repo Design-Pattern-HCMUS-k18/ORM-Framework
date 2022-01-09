@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ORM_Framework.Attributes;
+using ORM_Framework;
 
-namespace ORM_Framework
+namespace DEMOAPP
 {
     [Table("Product")]
     public class Product
