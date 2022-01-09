@@ -76,11 +76,9 @@ namespace ORM_Framework.SQL
                             whereStr = whereStr.Substring(0, whereStr.Length - 2);
                             string query = string.Format("SELECT * FROM {0} WHERE {1}", onetoone.ReferenceTable, whereStr);
                             Console.WriteLine(query);
-                            cnn.Open();
                             MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithoutRelationship")
-                            .MakeGenericMethod(new Type[] { type });
+                            .MakeGenericMethod(new Type[] { ptype });
                             var ienumerable = (IEnumerable)method.Invoke(cnn, new object[] { query });
-                            cnn.Close();
 
                             MethodInfo method2 = mapper.GetType().GetMethod("GetFirst");
                             var firstElement = method2.Invoke(mapper, new object[] { ienumerable });

@@ -106,8 +106,8 @@ namespace ORM_Framework
                 ColumnAttribute columnAttribute = null;
                 foreach (var attribute in attributes)
                 {
-                    foreignKey = attribute as ForeignKeyAttribute;
-                    columnAttribute = attribute as ColumnAttribute;
+                    if (foreignKey == null) foreignKey = attribute as ForeignKeyAttribute;
+                    if (columnAttribute == null) columnAttribute = attribute as ColumnAttribute;
 
                     if (foreignKey != null && columnAttribute != null && foreignKey.ReferenceTable.Equals(referenceTable))
                     {

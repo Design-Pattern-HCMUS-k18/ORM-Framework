@@ -11,8 +11,8 @@ namespace ORM_Framework
     {
         public static void Main(string[] args)
         {
-            //var db = DBConnectionFactory.CreateDBInstance(@"Data source=tcp:127.0.0.1;Database=ORM;User ID=sa;Password=SqlServer@1234; Integrated Security=false", "sqlserver");
-            var db = DBConnectionFactory.CreateDBInstance(@"Data source=tcp:127.0.0.1;Database=ORM; Integrated Security=true", "sqlserver");
+            var db = DBConnectionFactory.CreateDBInstance(@"Data source=tcp:127.0.0.1;Database=ORM;User ID=sa;Password=SqlServer@1234; Integrated Security=false", "sqlserver");
+            //var db = DBConnectionFactory.CreateDBInstance(@"Data source=tcp:127.0.0.1;Database=ORM; Integrated Security=true", "sqlserver");
             //var list = db.ExecuteQueryWithoutRelationship<Product>("SELECT * FROM PRODUCT");
             //foreach (var product in list)
             //{
@@ -27,9 +27,9 @@ namespace ORM_Framework
             //int rowEffected = db.Insert(product);
             //Console.Write(rowEffected);
 
-            var query = db.Select<Product>("Id");
+            var query = db.Select<Product>();
             //query.GroupBy("Name").Having("Sum(Price) > 4000000");
-            query.Where("Id = 4");
+            query.Where("Id = 2");
             var list = query.Run();
             foreach (var product in list)
             {
