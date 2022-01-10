@@ -24,13 +24,13 @@ namespace ORM_Framework
 
                 foreach (ColumnAttribute column in listColumnValues.Keys)
                 {
-                    bool temp = false;
+                    bool isPrimary = false;
                     foreach(var pk in pks)
                     {
-                        if (pk.Name == column.Name) temp = true;
+                        if (pk.Name == column.Name) isPrimary = true;
                         break;
                     }
-                    if (temp) continue;
+                    if (isPrimary) continue;
                     string format = "{0} = {1}, ";
                     if (column.Type == DataType.NVARCHAR || column.Type == DataType.NCHAR)
                     {
@@ -48,7 +48,6 @@ namespace ORM_Framework
                 }
                 foreach (PrimaryKeyAttribute primaryKey in pks)
                 {
-                    //ColumnAttribute column = mapper.FindColumn(primaryKey.Name, listColumnValues);
                     ColumnAttribute column = null;
                     foreach(ColumnAttribute col in listColumnValues.Keys)
                     {

@@ -76,7 +76,7 @@ namespace ORM_Framework.SQL
                             whereStr = whereStr.Substring(0, whereStr.Length - 2);
                             string query = string.Format("SELECT * FROM {0} WHERE {1}", onetoone.ReferenceTable, whereStr);
                             Console.WriteLine(query);
-                            MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithoutRelationship")
+                            MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithoutMapping")
                             .MakeGenericMethod(new Type[] { ptype });
                             var ienumerable = (IEnumerable)method.Invoke(cnn, new object[] { query });
 
@@ -148,7 +148,7 @@ namespace ORM_Framework.SQL
                             whereStr = whereStr.Substring(0, whereStr.Length - 2);
                             string query = string.Format("SELECT * FROM {0} WHERE {1}", onetoone.ReferenceTable, whereStr);
                             Console.WriteLine(query);
-                            var method = cnn.GetType().GetMethod("ExecuteQueryWithoutRelationship")
+                            var method = cnn.GetType().GetMethod("ExecuteQueryWithoutMapping")
                             .MakeGenericMethod(new Type[] { ptype });
                             var ienumerable = (IEnumerable)method.Invoke(cnn, new object[] { query });
 
@@ -219,7 +219,7 @@ namespace ORM_Framework.SQL
                             whereStr = whereStr.Substring(0, whereStr.Length - 2);
                             string query = string.Format("SELECT * FROM {0} WHERE {1}", onetomany.ReferenceTable, whereStr);
                             Console.WriteLine(query);
-                            MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithoutRelationship")
+                            MethodInfo method = cnn.GetType().GetMethod("ExecuteQueryWithoutMapping")
                             .MakeGenericMethod(new Type[] { genericType });
                             var ienumerable = (IEnumerable)method.Invoke(cnn, new object[] { query });
 

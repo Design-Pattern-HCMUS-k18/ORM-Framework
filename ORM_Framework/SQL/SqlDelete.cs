@@ -20,7 +20,6 @@ namespace ORM_Framework
             string valueStr = "";
             foreach (PrimaryKeyAttribute primaryKey in pks)
             {
-                //ColumnAttribute column = mapper.FindColumn(primaryKey.Name, columnValues);
                 ColumnAttribute column = null;
                 foreach (ColumnAttribute col in columnValues.Keys)
                 {

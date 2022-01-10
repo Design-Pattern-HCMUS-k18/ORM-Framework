@@ -11,9 +11,10 @@ namespace ORM_Framework
     {
         public static void Main(string[] args)
         {
-            var db = DBConnectionFactory.CreateDBInstance(@"Data source=DESKTOP-R463O3I\SQLEXPRESS;Database=ORM;User ID=sa;Password=123456; Integrated Security=true", "sqlserver");
+            //var db = DBConnectionFactory.CreateDBInstance(@"Data source=DESKTOP-R463O3I\SQLEXPRESS;Database=ORM;User ID=sa;Password=123456; Integrated Security=true", "sqlserver");
             //var db = DBConnectionFactory.CreateDBInstance(@"Data source=tcp:127.0.0.1;Database=ORM; Integrated Security=true", "sqlserver");
-            //var list = db.ExecuteQueryWithoutRelationship<Product>("SELECT * FROM PRODUCT");
+            var db = DBConnectionFactory.CreateDBInstance(@"Data source=tcp:127.0.0.1;Database=ORM;User ID=sa;Password=SqlServer@1234; Integrated Security=false", "sqlserver");
+            //var list = db.ExecuteQueryWithoutMapping<Product>("SELECT * FROM PRODUCT");
             //foreach (var product in list)
             //{
             //    Console.WriteLine(product.Name);
@@ -36,7 +37,7 @@ namespace ORM_Framework
                 //product.Name = "Xe máy";
                 //Console.WriteLine(db.Update(product));
             }
-            //var list = db.ExecuteQuery<Category>("select * from category");
+            //var list = db.ExecuteQueryAndMapping<Category>("select * from category");
             //foreach (var category in list)
             //{
             //    foreach (var product in category.Products)

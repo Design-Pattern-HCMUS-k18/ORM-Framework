@@ -47,16 +47,16 @@ namespace ORM_Framework
             throw new NotImplementedException();
         }
 
-        public override List<T> ExecuteQueryWithoutRelationship<T>(string query)
+        public override List<T> ExecuteQueryWithoutMapping<T>(string query)
         {
             SqlQuery sqlQuery = new SqlQuery((SqlConnection)_cnn, query);
-            return sqlQuery.ExecuteQueryWithoutRelationship<T>();
+            return sqlQuery.ExecuteQueryWithoutMapping<T>();
         }
 
-        public override List<T> ExecuteQuery<T>(string query)
+        public override List<T> ExecuteQueryAndMapping<T>(string query)
         {
             var sqlQuery = new SqlQuery((SqlConnection) _cnn, query);
-            return sqlQuery.ExecuteQuery<T>();
+            return sqlQuery.ExecuteQueryAndMapping<T>();
         }
 
         public override int Insert<T>(T obj)

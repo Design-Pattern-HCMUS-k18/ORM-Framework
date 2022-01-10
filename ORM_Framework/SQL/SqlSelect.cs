@@ -81,7 +81,7 @@ namespace ORM_Framework.SQL
                 BuildQuery();
 
                 Console.WriteLine("Raw query: {0}", _query);
-                return ExecuteQuery<T>();
+                return ExecuteQueryAndMapping<T>();
             }
             catch (Exception ex)
             {

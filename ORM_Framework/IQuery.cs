@@ -8,8 +8,8 @@ namespace ORM_Framework
 {
     public interface IQuery
     {
-        public List<T> ExecuteQuery<T>();
-        public List<T> ExecuteQueryWithoutRelationship<T>();
+        public List<T> ExecuteQueryAndMapping<T>();
+        public List<T> ExecuteQueryWithoutMapping<T>();
         public int ExecuteNonQuery();
     }
 }

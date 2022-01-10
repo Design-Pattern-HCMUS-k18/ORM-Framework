@@ -29,7 +29,7 @@ namespace ORM_Framework
         }
 
 
-        public List<T> ExecuteQueryWithoutRelationship<T>()
+        public List<T> ExecuteQueryWithoutMapping<T>()
         {
             List<T> list = new List<T>();
             Type type = typeof(T);
@@ -49,7 +49,7 @@ namespace ORM_Framework
                         }
                         catch (IndexOutOfRangeException)
                         {
-                            return;
+                            
                         }
                     }
                 );
@@ -78,7 +78,7 @@ namespace ORM_Framework
             return this;
         }
 
-        public List<T> ExecuteQuery<T>()
+        public List<T> ExecuteQueryAndMapping<T>()
         {
             List<T> list = new List<T>();
             _command.CommandText = _query;
@@ -92,7 +92,7 @@ namespace ORM_Framework
             DBConnection cnn = new SQL_DBConnection(_conn);
 
             foreach (DataRow dr in dt.Rows)
-                list.Add(mapper.MapWithRelationship<T>(cnn, dr));
+                list.Add(mapper.MapRowAndRelationship<T>(cnn, dr));
 
             return list;
         }

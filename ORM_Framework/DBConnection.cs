@@ -18,8 +18,8 @@ namespace ORM_Framework
         public abstract int Update<T>(T obj);
         public abstract void Delete<T>(T obj);
         public abstract IQueryBuilder<T> Select<T>(params string[] statements);
-        public abstract List<T> ExecuteQuery<T>(string query);
-        public abstract List<T> ExecuteQueryWithoutRelationship<T>(string query);
+        public abstract List<T> ExecuteQueryAndMapping<T>(string query);
+        public abstract List<T> ExecuteQueryWithoutMapping<T>(string query);
         public abstract int ExecuteNonQuery<T>(string query);
         
     }

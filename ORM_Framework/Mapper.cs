@@ -153,7 +153,7 @@ namespace ORM_Framework
             return list;
         }
 
-        public T MapWithRelationship<T>(DBConnection cnn, DataRow dr)
+        public T MapRowAndRelationship<T>(DBConnection cnn, DataRow dr)
         {
             T obj = (T)Activator.CreateInstance(typeof(T));
             var properties = typeof(T).GetProperties();
@@ -165,7 +165,6 @@ namespace ORM_Framework
                 foreach (var attribute in attributes)
                 {
                     var column = attribute as ColumnAttribute;
-
                     if (column != null)
                     {
                         columnMapping = column;
