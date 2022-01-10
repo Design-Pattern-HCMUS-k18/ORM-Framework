@@ -37,5 +37,10 @@ namespace ORM_Framework
             if (obj == null) return 0;
             return _conn.Update(obj);
         }
+        public int Insert(T obj)
+        {
+            if (obj == null) return 0;
+            return _conn.Insert(obj);
+        }
     }
 }

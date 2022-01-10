@@ -57,7 +57,8 @@ namespace DEMOAPP
             product.Price = decimal.Parse(TBPrice.Text);
             product.BarcodeId = int.Parse(TBBarcodeID.Text);
             product.CategoryId = int.Parse(TBCategory.Text);
-            db.Update(product);
+            var repo = db.CreateRepository<Product>();
+            repo.Update(product);
             MessageBox.Show("Update success!");
             ResetTable();
         }
@@ -70,8 +71,8 @@ namespace DEMOAPP
                 MessageBox.Show("Please choose product to delete");
                 return;
             }
-            
-            db.Delete(product);
+            var repo = db.CreateRepository<Product>();
+            repo.Delete(product);
             MessageBox.Show("Delete success!");
             ResetTable();
         }
@@ -90,8 +91,8 @@ namespace DEMOAPP
                 BarcodeId = barcodeId,
                 CategoryId = categoryId
             };
-
-            db.Insert(product);
+            var repo = db.CreateRepository<Product>();
+            repo.Insert(product);
             ResetTable();
         }
 
@@ -107,8 +108,8 @@ namespace DEMOAPP
 
         public void ResetTable()
         {
-            var query = db.Select<Product>();
-            var list = query.Run();
+            var repo = db.CreateRepository<Product>();
+            var list = repo.List();
             DataTable.ItemsSource = list;
         }
     }
