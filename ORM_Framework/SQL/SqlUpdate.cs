@@ -12,10 +12,10 @@ namespace ORM_Framework
     {
         public SqlUpdate(SqlConnection conn, T obj) : base(conn)
         {
-            SqlMapper mapper = new SqlMapper();
-            string tableName = mapper.GetTableName<T>();
-            List<PrimaryKeyAttribute> pks = mapper.GetAllPrimaryKeys<T>();
-            Dictionary<ColumnAttribute, object> listColumnValues = mapper.GetAllColumnValues<T>(obj);
+            SqlMapper mapper = new();
+            string tableName = AtributeUtils.GetIntance().GetTableName<T>();
+            List<PrimaryKeyAttribute> pks = AtributeUtils.GetIntance().GetAllPrimaryKeys<T>();
+            Dictionary<ColumnAttribute, object> listColumnValues = AtributeUtils.GetIntance().GetAllColumnValues<T>(obj);
 
             if (listColumnValues != null && pks != null)
             {

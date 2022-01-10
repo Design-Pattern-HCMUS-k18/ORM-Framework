@@ -39,14 +39,14 @@ namespace ORM_Framework.SQL
                 {
                     foreach(var onetoone in oneToOneAttributes)
                     {
-                        SqlMapper mapper = new SqlMapper();
+                        var mapper = new SqlMapper();
                         string whereStr = string.Empty;
 
-                        var foreignKeys = mapper.GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
+                        var foreignKeys = AtributeUtils.GetIntance().GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
 
-                        MethodInfo getColumnAttribute = mapper.GetType().GetMethod("GetColumnAttributes")
+                        MethodInfo getColumnAttribute = AtributeUtils.GetIntance().GetType().GetMethod("GetColumnAttributes")
                             .MakeGenericMethod(new Type[] { ptype });
-                        List<ColumnAttribute> columnAttributes = getColumnAttribute.Invoke(mapper, null) as List<ColumnAttribute>;
+                        List<ColumnAttribute> columnAttributes = getColumnAttribute.Invoke(AtributeUtils.GetIntance(), null) as List<ColumnAttribute>;
 
                         foreach(var foreignKey in foreignKeys)
                         {
@@ -114,11 +114,11 @@ namespace ORM_Framework.SQL
                         var mapper = new SqlMapper();
                         string whereStr = string.Empty;
 
-                        var foreignKeys = mapper.GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
+                        var foreignKeys = AtributeUtils.GetIntance().GetAllForeignKeyAttributes<T>(onetoone.ReferenceTable);
 
-                        MethodInfo getColumnAttribute = mapper.GetType().GetMethod("GetColumnAttributes")
+                        MethodInfo getColumnAttribute = AtributeUtils.GetIntance().GetType().GetMethod("GetColumnAttributes")
                             .MakeGenericMethod(new Type[] { ptype });
-                        var columnAttributes = getColumnAttribute.Invoke(mapper, null) as List<ColumnAttribute>;
+                        var columnAttributes = getColumnAttribute.Invoke(AtributeUtils.GetIntance(), null) as List<ColumnAttribute>;
 
                         foreach (var foreignKey in foreignKeys)
                         {
@@ -185,12 +185,12 @@ namespace ORM_Framework.SQL
                     {
                         SqlMapper mapper = new SqlMapper();
                         string whereStr = string.Empty;
-                        var tableName = mapper.GetTableName<T>();
-                        var getColumnMethod = mapper.GetType().GetMethod("GetAllForeignKeyAttributes")
+                        var tableName = AtributeUtils.GetIntance().GetTableName<T>();
+                        var getColumnMethod = AtributeUtils.GetIntance().GetType().GetMethod("GetAllForeignKeyAttributes")
                             .MakeGenericMethod(new Type[] { genericType });
-                        var foreignKeys = (List<KeyValuePair<ColumnAttribute, ForeignKeyAttribute>>)getColumnMethod.Invoke(mapper, new object[] { tableName });
+                        var foreignKeys = (List<KeyValuePair<ColumnAttribute, ForeignKeyAttribute>>)getColumnMethod.Invoke(AtributeUtils.GetIntance(), new object[] { tableName });
 
-                        var columnAttributes = mapper.GetColumnAttributes<T>();
+                        var columnAttributes = AtributeUtils.GetIntance().GetColumnAttributes<T>();
                         foreach (var foreignKey in foreignKeys)
                         {
                             ColumnAttribute column = null;
@@ -209,7 +209,7 @@ namespace ORM_Framework.SQL
                                     format = "{0} = N'{1}', ";
                                 else if (column.Type == DataType.CHAR || column.Type == DataType.VARCHAR)
                                     format = "{0} = '{1}', ";
-                                var primaryKey = mapper.GetPrimaryKey<T>(foreignKey.Value.ReferenceColumn);
+                                var primaryKey = AtributeUtils.GetIntance().GetPrimaryKey<T>(foreignKey.Value.ReferenceColumn);
                                 if (primaryKey == null) continue;
                                 whereStr += string.Format(format, foreignKey.Key.Name, dr[primaryKey.Name]);
                             }

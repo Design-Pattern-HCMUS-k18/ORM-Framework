@@ -13,9 +13,9 @@ namespace ORM_Framework
         public SqlDeleteQuery(SqlConnection conn, T obj) : base(conn)
         {
             SqlMapper mapper = new SqlMapper();
-            string tableName = mapper.GetTableName<T>();
-            List<PrimaryKeyAttribute> pks = mapper.GetAllPrimaryKeys<T>();
-            Dictionary<ColumnAttribute, object> columnValues = mapper.GetAllColumnValues<T>(obj);
+            string tableName = AtributeUtils.GetIntance().GetTableName<T>();
+            List<PrimaryKeyAttribute> pks = AtributeUtils.GetIntance().GetAllPrimaryKeys<T>();
+            Dictionary<ColumnAttribute, object> columnValues = AtributeUtils.GetIntance().GetAllColumnValues<T>(obj);
 
             string valueStr = "";
             foreach (PrimaryKeyAttribute primaryKey in pks)

@@ -26,11 +26,11 @@ namespace ORM_Framework.SQL
             }
             else
             {
-                foreach (ColumnAttribute column in mapper.GetColumns<T>())
+                foreach (ColumnAttribute column in AtributeUtils.GetIntance().GetColumns<T>())
                     SelectStatements.Add(column.Name);
             }
 
-            TableName = mapper.GetTableName<T>();
+            TableName = AtributeUtils.GetIntance().GetTableName<T>();
         }
 
         public IQueryBuilder<T> Where(string firstCondition, params string[] conditions)

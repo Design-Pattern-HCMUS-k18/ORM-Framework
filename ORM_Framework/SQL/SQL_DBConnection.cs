@@ -79,5 +79,10 @@ namespace ORM_Framework
         {
             return new SqlSelect<T>(_cnn as SqlConnection, statements);
         }
+
+        public override Repository<T> CreateRepository<T>()
+        {
+            return new Repository<T>(this);
+        }
     }
 }
